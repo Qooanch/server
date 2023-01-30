@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  qooanch-server:
+    container_name: qooanch-server
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - "./public/images/:/home/node/app/build/public/images"
+    ports:
+      - ${PORT}:${PORT}
+    env_file:
+      - .env
