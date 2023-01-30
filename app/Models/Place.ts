@@ -1,4 +1,3 @@
-import { DateTime } from 'luxon'
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm'
 
 export default class Place extends BaseModel {
@@ -10,7 +9,4 @@ export default class Place extends BaseModel {
 
   @column()
   public geo: string
-
-  @column.dateTime({ autoCreate: true })
-  public date: DateTime
 }
