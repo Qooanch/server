@@ -1,9 +1,12 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
+import { DateTime } from 'luxon'
 import Event from 'App/Models/Event'
 
 export default class EventsController {
   public async getEvents() {
-    return Event.query()
+    return Event
+      .query()
+      .where('date', '>=', DateTime.utc().toSQLDate())
   }
 
   public async getEvent({ params }: HttpContextContract) {
@@ -12,7 +15,7 @@ export default class EventsController {
     return await Event
       .query()
       .where('id', id)
-      .first();
+      .first()
   }
 
   public async createEvent({ request }: HttpContextContract) {
