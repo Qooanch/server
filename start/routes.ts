@@ -23,3 +23,11 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+Route.group(() => {
+  Route.get('/events', 'EventsController.getEvents')
+  Route.get('/events/:eventId', 'EventsController.getEvent')
+  Route.post('/events', 'EventsController.createEvent')
+  Route.delete('/events/:eventId', 'EventsController.deleteEvent')
+  Route.put('/events/:eventId', 'EventsController.editEvent')
+})
