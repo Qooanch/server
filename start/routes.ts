@@ -26,4 +26,4 @@ Route.group(() => {
   Route.post('/events', 'EventsController.createEvent')
   Route.delete('/events/:eventId', 'EventsController.deleteEvent')
   Route.put('/events/:eventId', 'EventsController.editEvent')
-})
+}).prefix('/api')
