@@ -20,6 +20,6 @@ FROM builder
 COPY --chown=node:node --from=builder /home/node/app/build/node_modules ./node_modules
 COPY --chown=node:node --from=builder /home/node/app/build ./build
 
-EXPOSE 4567
+EXPOSE 4444
 
 CMD sh -c 'cd build && node ace migration:run --force && node server.js'
